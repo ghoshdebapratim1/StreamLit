@@ -46,3 +46,20 @@ st.text('Discription about your graph and visualizations')
 #adding conclusions
 st.header('Conclusion')
 st.text('add your conclusion here')
+
+import streamlit as st
+import plotly.express as px
+
+# Sample data
+df = px.data.iris()
+
+# Plot
+fig = px.scatter(df,
+                 x="sepal_width",
+                 y="sepal_length",
+                 color="species",
+                 size='petal_length',
+                 hover_data=['petal_width'])
+
+st.title('Iris dataset')
+st.plotly_chart(fig)
